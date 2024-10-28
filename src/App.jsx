@@ -1,5 +1,6 @@
-import './App.css'
-import { States } from './States';
+import "./App.css";
+import { Lifecycles } from "./Lifecycles";
+import { States } from "./States";
 
 // Exercise 7
 function SortedNumberList(props) {
@@ -34,7 +35,7 @@ function SumWithDestructuring({ numbers }) {
   return <span>{sum}</span>;
 }
 
-// Exercise 10 - de måste vara exakt samma: 'myProp' 
+// Exercise 10 - de måste vara exakt samma: 'myProp'
 
 // Exercise 11
 function Notification({ title, message }) {
@@ -47,6 +48,7 @@ function Notification({ title, message }) {
 }
 
 function App() {
+  return <Lifecycles />;
   return <States />;
 
   return (
@@ -57,24 +59,34 @@ function App() {
       <Notification title="Fel input" message="Du måste ange ett lösenord" />
 
       {/* Exercise 17 */}
-      <input onChange={(event) => { console.log(event.target.value); }}></input>
+      <input
+        onChange={(event) => {
+          console.log(event.target.value);
+        }}
+      ></input>
 
       <Exercise22 />
     </>
-  )
+  );
 }
 
 // Exercise 22
 function Exercise22() {
   const todos = [
     {
-      description: "Clean kitchen", completed: false, createdDate: new Date()
+      description: "Clean kitchen",
+      completed: false,
+      createdDate: new Date(),
     },
     {
-      description: "Buy groceries", completed: true, createdDate: new Date()
+      description: "Buy groceries",
+      completed: true,
+      createdDate: new Date(),
     },
     {
-      description: "Visit friend", completed: false, createdDate: new Date()
+      description: "Visit friend",
+      completed: false,
+      createdDate: new Date(),
     },
     { description: "Call work", completed: true, createdDate: new Date() },
   ];
@@ -83,17 +95,21 @@ function Exercise22() {
     <div>
       <h1>TODOS</h1>
       <ol>
-        {todos.map((todo) => <Todo todo={todo}/>)}
+        {todos.map((todo) => (
+          <Todo todo={todo} />
+        ))}
       </ol>
     </div>
   );
 }
 
 function Todo({ todo }) {
-  return <li key={todo.description}>
-    <div>{todo.description}</div>
-    <div>{todo.completed ? "Completed" : "In progress"}</div>
-  </li>;
+  return (
+    <li key={todo.description}>
+      <div>{todo.description}</div>
+      <div>{todo.completed ? "Completed" : "In progress"}</div>
+    </li>
+  );
 }
 
-export default App
+export default App;
